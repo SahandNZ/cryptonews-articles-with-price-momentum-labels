@@ -1,0 +1,16 @@
+# Python environments
+**/env/
+**/venv/
+
+# python packages
+**/dist
+
+# Pycharm
+**/.idea/
+**/__pycache__/
+
+# Jupyter lab
+**/.ipynb_checkpoints/
+
+# vscode
+.vscode/*
