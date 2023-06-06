@@ -1,0 +1,7 @@
+beautifulsoup4
+pandas
+pip-chill
+pysocks
+requests
+selenium
+tqdm
