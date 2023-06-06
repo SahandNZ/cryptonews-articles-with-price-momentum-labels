@@ -11,9 +11,8 @@ from src.crawler.textual.scraper import Scraper
 
 
 class CryptoNewsScraper(Scraper):
-    def __init__(self, threads: int, use_cache: bool = True):
-        super().__init__(name='cryptonews', base_url='https://cryptonews.com/news/bitcoin-news/', threads=threads,
-                         use_cache=use_cache)
+    def __init__(self, use_cache: bool = True):
+        super().__init__(name='cryptonews', base_url='https://cryptonews.com/news/bitcoin-news/', use_cache=use_cache)
 
     def collect_urls(self) -> List[URL]:
         driver = webdriver.Chrome()

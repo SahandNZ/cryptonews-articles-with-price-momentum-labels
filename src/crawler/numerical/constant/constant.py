@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
-from enum import Enum
 
 
-class Constant(Enum):
+class Constant(ABC):
     @staticmethod
     @abstractmethod
     def from_binance(value):

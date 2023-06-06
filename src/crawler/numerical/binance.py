@@ -4,15 +4,15 @@ from urllib import parse
 
 import requests
 
+from src.crawler.numerical.api import API
 from src.crawler.numerical.constant.symbol import Symbol
 from src.crawler.numerical.constant.time_frame import TimeFrame
 from src.crawler.numerical.model.candle import Candle
 
 
-class BinanceDataApi:
+class BinanceDataAPI(API):
     def __init__(self):
-        self.base_url: str = "https://fapi.binance.com"
-        self.maximum_requestable_candles: int = 1500
+        super().__init__(name='binance', base_url="https://fapi.binance.com", maximum_requestable_candles=1500)
 
     def get_candles(self, symbol: str, time_frame: TimeFrame, from_timestamp: int, to_timestamp: int) -> List[Candle]:
         endpoint = '/fapi/v1/klines'

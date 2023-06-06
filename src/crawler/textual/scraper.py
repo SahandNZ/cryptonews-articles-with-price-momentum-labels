@@ -4,20 +4,19 @@ from typing import List
 
 from tqdm import tqdm
 
-from definition import TEXTUAL_DATA_DIR
+from definitions import TEXTUAL_RAW_DATA_DIR
 from src.crawler.textual.model.news import News
 from src.crawler.textual.model.url import URL
 from src.utils.directory import create_directory_recursively
 
 
 class Scraper(ABC):
-    def __init__(self, name: str, base_url: str, threads: int, use_cache: bool):
+    def __init__(self, name: str, base_url: str, use_cache: bool):
         self.name: str = name
         self.base_url: str = base_url
-        self.threads: int = threads
         self.use_cache: bool = use_cache
 
-        self.data_root = os.path.join(TEXTUAL_DATA_DIR, self.name)
+        self.data_root = os.path.join(TEXTUAL_RAW_DATA_DIR, self.name)
         self.urls_csv_path = os.path.join(self.data_root, 'url.csv')
         self.news_json_path = os.path.join(self.data_root, 'news.json')
         create_directory_recursively(self.data_root)
@@ -51,7 +50,6 @@ class Scraper(ABC):
 
                 except Exception as e:
                     print(e)
-
 
     @abstractmethod
     def collect_urls(self) -> List[URL]:
