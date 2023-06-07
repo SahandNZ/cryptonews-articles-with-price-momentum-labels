@@ -49,8 +49,17 @@ class Candle:
         return [self.timestamp, self.open, self.high, self.low, self.close, self.volume, self.trade]
 
     @staticmethod
+    def from_dataframe(dataframe: pd.DataFrame) -> List:
+        return [Candle.from_list(dataframe.iloc[i].to_list()) for i in range(len(dataframe))]
+
+    @staticmethod
     def to_dataframe(candles: List):
         columns = ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'trade']
         values = [candle.to_list() for candle in candles]
         df = pd.DataFrame(values, columns=columns)
         return df
+
+    @staticmethod
+    def from_csv(path: str):
+        df = pd.read_csv(path)
+        return Candle.from_dataframe(df)

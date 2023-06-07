@@ -8,10 +8,10 @@ from src.model.news import News
 
 class NewsCleaner(Cleaner):
     def __init__(self, raw_data: List):
-        super().__init__(raw_data, columns=['datetime', 'title', 'text', 'url'])
+        super().__init__(raw_data)
 
-    def clean(self, raw_data: List[News]) -> List[List]:
-        clean_data = []
+    def clean(self, raw_data: List[News]) -> List[News]:
+        clean_news_list = []
 
         bar = tqdm(raw_data)
         bar.set_description("Cleaning News Data")
@@ -19,8 +19,12 @@ class NewsCleaner(Cleaner):
             clean_datetime = self.clean_datetime(raw_news.date)
             clean_title = self.clean_string(raw_news.title)
             clean_url = raw_news.url
-            for paragraph in raw_news.paragraphs:
-                clean_paragraph = self.clean_string(paragraph)
-                clean_data.append([clean_datetime, clean_title, clean_paragraph, clean_url])
+            clean_paragraphs = [self.clean_string(p) for p in raw_news.paragraphs]
+            clean_news = News(clean_datetime, clean_title, clean_url, clean_paragraphs)
+            clean_news_list.append(clean_news)
 
-        return clean_data
+        return clean_news_list
+
+    def to_json(self, path: str):
+        clean_news = self.clean(self.raw_data)
+        News.to_json(clean_news, path)

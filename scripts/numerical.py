@@ -15,10 +15,10 @@ def crawl(symbol: str, time_frame: int):
     from_timestamp = to_timestamp - time_frame * api.maximum_requestable_candles
     candles = api.get_candles(symbol, time_frame, from_timestamp, to_timestamp)
 
-    df = Candle.to_dataframe(candles)
-    data_root = os.path.join(NUMERICAL_RAW_DATA_DIR, api.name, symbol)
-    create_directory_recursively(data_root)
+    df = Candle.to_dataframe(candles[:-1])
+    data_root = os.path.join(NUMERICAL_CLEAN_DATA_DIR, api.name, symbol)
     data_path = os.path.join(data_root, '{}.csv'.format(TimeFrame.to_str(time_frame)))
+    create_directory_recursively(data_root)
     df.to_csv(data_path, index=False)
 
 

@@ -4,7 +4,7 @@ from typing import List
 
 from tqdm import tqdm
 
-from definitions import TEXTUAL_RAW_DATA_DIR
+from definitions import RAW_DATA_DIR
 from src.model.news import News
 from src.model.url import URL
 from src.utils.directory import create_directory_recursively
@@ -16,7 +16,7 @@ class Scraper(ABC):
         self.base_url: str = base_url
         self.use_cache: bool = use_cache
 
-        self.data_root = os.path.join(TEXTUAL_RAW_DATA_DIR, self.name)
+        self.data_root = os.path.join(RAW_DATA_DIR, self.name)
         self.urls_csv_path = os.path.join(self.data_root, 'url.csv')
         self.news_json_path = os.path.join(self.data_root, 'news.json')
         create_directory_recursively(self.data_root)
