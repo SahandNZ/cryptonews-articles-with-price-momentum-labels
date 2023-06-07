@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-from src.crawler.textual.model.news import News
-from src.crawler.textual.model.url import URL
+from src.model.news import News
+from src.model.url import URL
 from src.crawler.textual.scraper import Scraper
 
 

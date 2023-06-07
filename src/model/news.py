@@ -23,3 +23,13 @@ class News:
         with open(path, 'w') as file:
             data = [news.__dict__ for news in news_list]
             json.dump(data, file, indent=4)
+
+    def __str__(self):
+        return "Date: {}\n" \
+               "Title: {}\n" \
+               "URL: {}\n" \
+               "Paragraphs: \n\t{}"\
+            .format(self.date,
+                    self.title,
+                    self.url,
+                    '\n\t'.join(["- {}{}".format(p[:100], "..." if 100 < len(p) else '') for p in self.paragraphs]))

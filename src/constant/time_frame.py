@@ -1,7 +1,4 @@
-from src.crawler.numerical.constant.constant import Constant
-
-
-class TimeFrame(Constant):
+class TimeFrame:
     MIN1: int = 60
     MIN3: int = 3 * MIN1
     MIN5: int = 5 * MIN1

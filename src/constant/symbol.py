@@ -1,7 +1,4 @@
-from src.crawler.numerical.constant.constant import Constant
-
-
-class Symbol(Constant):
+class Symbol:
     BTCUSDT = 'BTC-USDT'
 
     @staticmethod

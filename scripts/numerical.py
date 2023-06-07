@@ -3,9 +3,9 @@ import math
 from datetime import datetime
 
 from definitions import *
+from src.constant.time_frame import TimeFrame
 from src.crawler.numerical.binance import BinanceDataAPI
-from src.crawler.numerical.constant.time_frame import TimeFrame
-from src.crawler.numerical.model.candle import Candle
+from src.model.candle import Candle
 from src.utils.directory import create_directory_recursively
 
 

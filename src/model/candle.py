@@ -3,10 +3,8 @@ from typing import List
 
 import pandas as pd
 
-from src.crawler.numerical.model.model import Model
 
-
-class Candle(Model):
+class Candle:
     def __init__(self):
         self.timestamp: int = None
         self.datetime: datetime = None

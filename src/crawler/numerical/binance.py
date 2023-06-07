@@ -4,10 +4,10 @@ from urllib import parse
 
 import requests
 
+from src.constant.symbol import Symbol
+from src.constant.time_frame import TimeFrame
 from src.crawler.numerical.api import API
-from src.crawler.numerical.constant.symbol import Symbol
-from src.crawler.numerical.constant.time_frame import TimeFrame
-from src.crawler.numerical.model.candle import Candle
+from src.model.candle import Candle
 
 
 class BinanceDataAPI(API):

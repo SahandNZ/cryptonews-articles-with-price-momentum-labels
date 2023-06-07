@@ -1,9 +1,9 @@
 from abc import abstractmethod, ABC
 from typing import List
 
-from src.crawler.numerical.constant.symbol import Symbol
-from src.crawler.numerical.constant.time_frame import TimeFrame
-from src.crawler.numerical.model.candle import Candle
+from src.constant.symbol import Symbol
+from src.constant.time_frame import TimeFrame
+from src.model.candle import Candle
 
 
 class API(ABC):

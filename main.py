@@ -1,9 +1,10 @@
 import argparse
 
+from scripts.cleaner import clean as clean_textual
 from scripts.numerical import crawl as crawl_numerical
 from scripts.textual import crawl as crawl_textual
-from src.crawler.numerical.constant.symbol import Symbol
-from src.crawler.numerical.constant.time_frame import TimeFrame
+from src.constant.symbol import Symbol
+from src.constant.time_frame import TimeFrame
 
 
 def crawl():
@@ -12,7 +13,7 @@ def crawl():
 
 
 def clean():
-    pass
+    clean_textual(source='cryptonews')
 
 
 if __name__ == '__main__':

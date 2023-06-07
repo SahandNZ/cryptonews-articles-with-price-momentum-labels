@@ -5,8 +5,8 @@ from typing import List
 from tqdm import tqdm
 
 from definitions import TEXTUAL_RAW_DATA_DIR
-from src.crawler.textual.model.news import News
-from src.crawler.textual.model.url import URL
+from src.model.news import News
+from src.model.url import URL
 from src.utils.directory import create_directory_recursively
 
 
@@ -39,9 +39,11 @@ class Scraper(ABC):
         self.news_list: List[News] = []
         if self.use_cache and os.path.exists(self.news_json_path):
             self.news_list = News.from_json(self.news_json_path)
-
         collected_urls = [news.url for news in self.news_list]
-        for item in tqdm(self.urls):
+
+        bar = tqdm(self.urls)
+        bar.set_description('Scrape news pages')
+        for item in bar:
             if item.url not in collected_urls:
                 try:
                     news = self.collect_news(item.url)
