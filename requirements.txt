@@ -1,7 +1,14 @@
-beautifulsoup4
+abs
+fqdn
+isoduration
+jsonpointer
+jupyterlab
+matplotlib
+nltk
 pandas
 pip-chill
 pysocks
-requests
 selenium
-tqdm
+transformers
+uri-template
+webcolors
