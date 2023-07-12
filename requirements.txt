@@ -14,3 +14,4 @@ uri-template
 webcolors
 torch
 sklearn
+sentencepiece

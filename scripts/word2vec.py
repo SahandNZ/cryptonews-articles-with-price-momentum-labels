@@ -58,7 +58,7 @@ def run_word2vec(args):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--textual-source', action='store', type=str, required=False, default='cryptonews')
-    parser.add_argument('--method', action='store', type=str, required=False, default='color')
+    parser.add_argument('--labeling-method', action='store', type=str, required=False, default='color')
     parser.add_argument('--label', action='store', type=int, required=False, default=None)
 
     parser.add_argument('--load-model', action='store_true', required=False, default=False)

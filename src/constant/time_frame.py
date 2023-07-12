@@ -46,7 +46,7 @@ class TimeFrame:
         if minute < 60:
             return "{} Minute{}".format(minute, 's' if 1 != minute else '')
         elif hour < 24:
-            return "{} Hour{}".format(hour, 's' if 1 != hou else '')
+            return "{} Hour{}".format(hour, 's' if 1 != hour else '')
         elif day < 7:
             return "{} Day{}".format(day, 's' if 1 != day else '')
         elif 1 == week:
