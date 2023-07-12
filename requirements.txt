@@ -12,3 +12,5 @@ selenium
 transformers
 uri-template
 webcolors
+torch
+sklearn
