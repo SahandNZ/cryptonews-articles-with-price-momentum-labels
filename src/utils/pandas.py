@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.crawler.numerical.constant.time_frame import TimeFrame
+from src.constant.time_frame import TimeFrame
 
 
 def resample_based_on_time_frame(tohlcv: pd.DataFrame, source_time_frame: TimeFrame,
